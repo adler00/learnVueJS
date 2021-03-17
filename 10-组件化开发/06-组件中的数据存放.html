@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+</div>
+
+<template id="cpnC">
+  <div>
+    <h2>{{title}}s</h2>
+    <p>{{content}}</p>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  Vue.component('cpn',{
+    template: `#cpnC`,
+    //注册组件中的data必须以函数形式注册，且必须返回一个对象
+    data(){
+      return {
+        title: "标题",
+        content: "内容"
+      }
+    }
+  })
+  const app=new Vue({
+    el: '#app',
+    data:{
+      message: 'Hello'
+      }
+  })
+</script>
+</body>
+</html>
