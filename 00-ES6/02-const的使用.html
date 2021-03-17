@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 1.const修饰的变量不能修改
+  // const name= 'abc';
+  // name= 'bbb'
+
+  // 2.const修饰的变量，需要初始化
+  // const name;
+
+  // 3.const指向的对象不能修改，但可以改变对象内部属性
+  const obj= {
+    name: 'why',
+    age: 18,
+    height: 1.88
+  }
+  console.log(obj);
+  // obj= {}
+  obj.name= 'lobe';
+  obj.age= 25;
+  obj.height= 2.21;
+  console.log(obj);
+</script>
+</body>
+</html>

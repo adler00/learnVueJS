@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+
+<script>
+  // ES5当中没有块级作用域，只能通过function来间接实现块级作用域
+  // ES6当中有块级作用域，可以快速解决该问题
+
+
+  // 1.变量作用域：变量作用范围
+  // {
+  //   var name= 'why'
+  //   console.log(name);
+  // }
+  // console.log(name);
+
+  // 2.没有块级作用域引起的问题:if的块级
+  // var func;
+  // if(true){
+  //   var name= 'why';
+  //   func=function () {
+  //     console.log(name);
+  //   }
+  //   func();
+  // }
+  // name= 'who';
+  // func();
+  // console.log(name);
+
+  // 3.没有块级作用域引起的问题:for的块级
+  // var btns= document.getElementsByTagName('button');
+  // for(var i=0;i<btns.length;i++){
+  //   btns[i].addEventListener('click',function () {
+  //     console.log('第' + i + '个按钮被点击');
+  //   })
+  // }
+
+  // 4.ES6的改写
+  const btns=document.getElementsByTagName('button');
+  for(let i=0;i<btns.length;i++){
+    btns[i].addEventListener('click',function () {
+      console.log('第' + i + '个按钮被点击');
+    })
+  }
+
+
+</script>
+</body>
+</html>

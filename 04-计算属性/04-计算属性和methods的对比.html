@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  1.直接拼接-->
+  <h2>{{firstName}} {{lastName}}</h2>
+<!--  2.通过methods函数实现返回,methods每显示一次，均需要执行一次方法，较为占用系统资源-->
+  <h2>{{getFullName()}}</h2>
+<!--  3.通过computed计算属性返回，只要变量属性值不变，每次显示均只调用缓存中结果，较为节约系统资源-->
+  <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+const app=new Vue({
+  el: '#app',
+  data:{
+    firstName: 'Chang',
+    lastName: 'Hao'
+  },
+  methods: {
+    getFullName: function () {
+      return this.firstName+' '+this.lastName
+    }
+  },
+  computed: {
+    fullName: function () {
+      return this.firstName+' '+this.lastName
+    }
+  }
+})
+</script>
+</body>
+</html>

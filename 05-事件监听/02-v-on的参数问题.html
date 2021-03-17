@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--  1.事件调用的方法没有参数(事件调用中有无括号都一样)-->
+  <button @click="btn1Click()">按钮1</button>
+  <button @click="btn1Click">按钮1</button>
+
+<!--  2.在事件调用时，省略了括号，但方法中是需要一个参数的情况-->
+<!--  (1)正常传参数，函数正常执行打印-->
+<!--  <button @click="btn2Click(123)">按钮2</button>-->
+<!--  (2)有形参，但不传值，则打印显示undefine-->
+<!--  <button @click="btn2Click()">按钮2</button>-->
+<!--  (3)函数本身需要传参，但事件调用省略了括号，系统打印event,Vue本身会默认的将浏览器产生的event事件作为对象传入-->
+  <button @click="btn2Click">按钮2</button>
+
+<!--  3.方法定义时，即需要传入参数，也需要event对象-->
+  <button @click="btn3Click(123,$event)">按钮3</button>
+
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+const app=new Vue({
+  el: '#app',
+  data:{
+    message: 'Hello'
+  },
+  methods: {
+    btn1Click(){
+      console.log('btn1Click');
+    },
+    btn2Click(abc){
+      console.log('-----', abc);
+    },
+    btn3Click(abc,event){
+      console.log('++++',abc, event);
+    }
+  }
+})
+</script>
+</body>
+</html>

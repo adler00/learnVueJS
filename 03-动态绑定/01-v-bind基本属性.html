@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!-- mustache仅用于填充content -->
+  <!-- 属性填充使用v-bind -->
+  <img v-bind:src="imgURL" alt="">
+  <a v-bind:href="aURL">百度</a>
+
+  <!-- 语法糖写法 -->
+  <img :src="imgURL" alt="">
+  <a :href="aURL">百度</a>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+const app=new Vue({
+  el: '#app',
+  data:{
+    message: 'Hello',
+    imgURL: 'https://img30.360buyimg.com/ceco/s300x300_jfs/t1/123684/14/14989/154286/5f87bcadE35c284dd/7381c5e2fcf46dc7.jpg!q70.jpg.webp',
+    aURL: 'https://www.baidu.com'
+  }
+})
+</script>
+</body>
+</html>

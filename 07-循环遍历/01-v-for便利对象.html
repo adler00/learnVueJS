@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--  1.未使用下标的方式进行循环遍历-->
+  <ul>
+    <li v-for="day in message">{{day}}</li>
+  </ul>
+<!--2.使用下标的方式进行遍历-->
+  <ul>
+    <li v-for="(day,index) in message">{{index+1}}-{{day}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+const app=new Vue({
+  el: '#app',
+  data:{
+    message: ['星期一','星期二','星期三','星期四','星期五','星期六','星期天']
+  }
+})
+</script>
+</body>
+</html>
