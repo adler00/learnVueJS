@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!-- 5.组件使用，同时绑定子组件与父组件之间的关系 -->
+  <cpn :c-info="info" :child-my-message="message"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2>{{cInfo}}</h2>
+    <h2>{{childMyMessage}}</h2>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  //3.定义子组件
+  const cpn= {
+    template: `#cpn`,
+    //4.通过props定义子组件内的数据类型、默认值
+    props: {
+      cInfo: {
+        type: Object,
+        default() {
+          return [];
+        },},
+        childMyMessage: {
+          type: String,
+          default: ''
+        }
+    }
+  }
+
+  //1.父组件内定义数据：对象型数据info和字符串型数据message
+  const app=new Vue({
+    el: '#app',
+    data:{
+      info: {
+        name: 'Roger',
+        age: 40,
+        height: 185
+      },
+      message: 'Wooo'
+      },
+    //2.父组件内注册组件
+    components: {
+        cpn
+    }
+  })
+</script>
+</body>
+</html>
